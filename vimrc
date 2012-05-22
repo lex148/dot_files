@@ -67,7 +67,6 @@ set cinoptions=:0,(s,u0,U1,g0,t0
 set completeopt=menuone,preview
 set hidden
 set history=1000
-set incsearch
 set laststatus=2
 
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
@@ -98,17 +97,22 @@ set formatoptions=qrn1
 set colorcolumn=+1
 
 set visualbell
-set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
+set wildignore+=bin,.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc
 set wildmenu
 set nowrap
 set spell
 set splitright
+set scrolloff=4
+
+set ignorecase
+set smartcase
+set incsearch
 
 " Auto Complete ================================================================
-set complete=.,w,b,u,i,t,k
-let g:AutoComplPop_CompleteOption = '.,w,b,u,i,t,k'
-let g:AutoComplPop_IgnoreCaseOption = 0
-let g:AutoComplPop_BehaviorKeywordLength = 2
+" set complete=.,w,b,u,i,t,k
+" let g:AutoComplPop_CompleteOption = '.,w,b,u,i,t,k'
+" let g:AutoComplPop_IgnoreCaseOption = 0
+" let g:AutoComplPop_BehaviorKeywordLength = 2
 
 " More Auto Complete
 autocmd FileType html       set omnifunc=html5complete#CompleteTags
@@ -140,7 +144,7 @@ vmap <Leader>x= :Tabularize /=<CR>
 nmap <Leader>x: :Tabularize /:\zs<CR>
 vmap <Leader>x: :Tabularize /:\zs<CR>
 
-" _ Powerline 
+" _ Powerline
 let g:Powerline_symbols = 'fancy'
 let g:Powerline_cache_enabled = 1
 
@@ -156,10 +160,21 @@ noremap <C-j>  <C-w>j
 noremap <C-k>  <C-w>k
 noremap <C-l>  <C-w>l
 
+" NO Arrow Navigation
+"inoremap  <Up>     <NOP>
+"inoremap  <Down>   <NOP>
+"inoremap  <Left>   <NOP>
+"inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
+
+
 " GUI
 if has('gui_running')
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 22
+  set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline\ 22
+  " set guifont=Terminus\ for\ Powerline\ 22
   set guioptions -=T
   highlight Normal guibg=#222222
 endif
-
